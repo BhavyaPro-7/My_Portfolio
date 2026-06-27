@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhavya Kothari — 17-Year-Old Software Engineering Student</title>
-  <meta name="description" content="Personal editorial portfolio of Bhavya Kothari, a 17-year-old Computer Science student from India focused on building real projects, software engineering, and documenting the journey.">
+  <meta name="description" content="Personal editorial portfolio of Bhavya Kothari (@devwithbhavya), a 17-year-old Computer Science student from India focused on building real projects, software engineering, and documenting the journey on Instagram & YouTube.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
   <div class="cursor-outline" id="cursor-outline"></div>
 
   <!-- Toast Notification -->
-  <div class="toast" id="toast">Email link copied! 🚀</div>
+  <div class="toast" id="toast">Email copied to clipboard! 🚀</div>
 
   <!-- Sticky Editorial Header -->
   <header class="site-header">
@@ -34,6 +34,7 @@
         <span class="brand-year">BUILDER</span>
       </a>
       
+      <!-- Desktop Nav -->
       <nav class="main-nav">
         <a href="#about" class="nav-link">About</a>
         <a href="#journey" class="nav-link">Journey</a>
@@ -43,9 +44,30 @@
         <a href="#contact" class="nav-link nav-btn-pill">Contact</a>
       </nav>
 
-      <div class="status-indicator">
-        <span class="status-dot"></span>
-        <span class="status-text">Learning & Building Publicly</span>
+      <div class="header-right-group">
+        <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="status-indicator header-insta-btn">
+          <span class="status-dot red-dot-anim"></span>
+          <span class="status-text">@devwithbhavya ↗</span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+      <div class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-link">01 / About</a>
+        <a href="#journey" class="mobile-nav-link">02 / Journey</a>
+        <a href="#projects" class="mobile-nav-link">03 / Projects</a>
+        <a href="#skills" class="mobile-nav-link">04 / Skills</a>
+        <a href="#goals" class="mobile-nav-link">05 / Goals</a>
+        <a href="#contact" class="mobile-nav-link mobile-btn-pill">06 / Contact</a>
+        <a href="https://instagram.com/devwithbhavya" target="_blank" class="mobile-nav-link highlight-insta">📸 Follow Instagram @devwithbhavya ↗</a>
       </div>
     </div>
   </header>
@@ -66,8 +88,13 @@
 
         <div class="hero-content">
           <div class="hero-badge-row">
-            <span class="pill-tag"><span class="yellow-dot"></span> Based in India</span>
-            <span class="pill-tag outline">Documenting the Journey</span>
+            <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="pill-tag promo-pill-insta" data-magnetic>
+              <span class="red-dot"></span> 📸 Follow My Journey @devwithbhavya ↗
+            </a>
+            <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" rel="noopener" class="pill-tag promo-pill-yt" data-magnetic>
+              <span class="blue-dot"></span> ▶ YouTube @bhavyak7 ↗
+            </a>
+            <span class="pill-tag outline">Based in India</span>
           </div>
 
           <h1 class="hero-title">
@@ -75,40 +102,39 @@
             <span class="title-line title-line-2">
               <span class="yellow-highlight-box">BHAVYA KOTHARI</span>
             </span>
-            <span class="title-line title-line-3">& CS STUDENT<span class="yellow-dot-lg">.</span></span>
+            <span class="title-line title-line-3">& CS STUDENT<span class="red-dot-lg">.</span></span>
           </h1>
 
           <div class="hero-bottom-grid">
             <div class="hero-bio-card">
               <p class="hero-subtitle">
-                A 17-year-old student learning software engineering by building real projects. Currently exploring Python, Web Development, Automation, and preparing for AI & Machine Learning.
+                A 17-year-old student learning software engineering by building real projects. Currently exploring Python, Web Development, Automation, and documenting my full journey on Instagram <a href="https://instagram.com/devwithbhavya" target="_blank" class="bio-link-insta">@devwithbhavya</a>.
               </p>
               <div class="hero-cta-group">
                 <a href="#projects" class="btn-primary" data-magnetic>
                   Explore Shipped Projects
                   <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#journey" class="btn-secondary" data-magnetic>
-                  View My Journey
+                <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="btn-secondary btn-insta-hero" data-magnetic>
+                  📸 Join 1.5k+ on Instagram
                 </a>
               </div>
             </div>
 
-            <!-- Abstract Yellow Graphic Composition Box -->
+            <!-- Abstract Graphic Composition Box with Yellow, Red & Blue accents -->
             <div class="hero-graphic-box">
               <div class="yellow-card-shape">
                 <div class="dot-grid-overlay"></div>
-                <!-- Doodle SVGs -->
                 <svg class="doodle doodle-code" viewBox="0 0 100 100" fill="none" stroke="#111" stroke-width="3">
                   <path d="M30 40L15 50L30 60M70 40L85 50L70 60M55 30L45 70" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <svg class="doodle doodle-star" viewBox="0 0 100 100" fill="#111">
+                <svg class="doodle doodle-star" viewBox="0 0 100 100" fill="#2563EB">
                   <path d="M50 0L63 37L100 50L63 63L50 100L37 63L0 50L37 37Z"/>
                 </svg>
-                <div class="circle-outline-lg"></div>
-                <div class="floating-mini-badge">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                  <span>100% Projects Focus</span>
+                <div class="circle-outline-lg border-red"></div>
+                <div class="floating-mini-badge badge-red-insta">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  <span>@devwithbhavya</span>
                 </div>
               </div>
             </div>
@@ -130,54 +156,60 @@
         <div class="section-header-editorial">
           <span class="section-num">02</span>
           <div class="section-title-wrap">
-            <span class="sub-label">MY STORY</span>
-            <h2 class="section-heading">ABOUT ME<span class="accent-dot">.</span></h2>
+            <span class="sub-label text-blue">MY STORY</span>
+            <h2 class="section-heading">ABOUT ME<span class="accent-dot-red">.</span></h2>
           </div>
         </div>
 
         <div class="about-grid">
           <div class="about-main-text">
             <p class="lead-text">
-              "I am a <strong class="highlight-text">17-year-old student from India</strong> who chose hands-on software creation over traditional entrance exam grinding."
+              "I am a <strong class="highlight-text-blue">17-year-old student from India</strong> who chose hands-on software creation over traditional entrance exam grinding."
             </p>
             <p class="body-text">
               I originally prepared for JEE for around 1.5 years, but eventually realized that my real interest was Computer Science and software development. Instead of continuing to chase engineering entrance exams, I decided to dedicate myself to becoming an excellent software engineer.
             </p>
             <p class="body-text">
-              I believe in learning by building. Instead of collecting certificates, I focus on creating projects, understanding how technologies work, writing clean code, and improving every week. I document my progress publicly while continuously sharpening my craft.
+              I believe in learning by building. Instead of collecting certificates, I focus on creating projects, understanding how technologies work, writing clean code, and improving every week.
+            </p>
+            <p class="body-text">
+              I document my entire coding journey publicly on my Instagram page <a href="https://instagram.com/devwithbhavya" target="_blank" class="text-link-red"><strong>@devwithbhavya</strong></a> and YouTube channel <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" class="text-link-blue"><strong>@bhavyak7</strong></a> to inspire other students starting from zero.
             </p>
 
-            <div class="quote-box-editorial">
-              <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <div class="quote-box-editorial border-blue-left">
+              <svg class="quote-icon text-blue" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
               <p class="quote-content">Every project is an opportunity to improve. Every bug is something to learn from. Consistency matters more than motivation.</p>
             </div>
           </div>
 
           <div class="about-cards-col">
-            <!-- Long-term Goals Card -->
-            <div class="editorial-card yellow-accent-border">
-              <div class="card-tag">VISION</div>
-              <h3 class="card-title-lg">Long-Term Goals</h3>
-              <ul class="styled-list">
-                <li><span class="list-bullet"></span> Become an exceptional software engineer</li>
-                <li><span class="list-bullet"></span> Master AI and Machine Learning</li>
-                <li><span class="list-bullet"></span> Build products used by thousands of people</li>
-                <li><span class="list-bullet"></span> Contribute to open-source projects</li>
-                <li><span class="list-bullet"></span> Keep learning throughout my career</li>
-              </ul>
+            <!-- Featured Social Channel Banner Card -->
+            <div class="editorial-card insta-feature-card">
+              <div class="card-tag tag-red">DOCUMENTING JOURNEY</div>
+              <h3 class="card-title-lg">Follow My Coding Sprints</h3>
+              <p class="card-sub">Real builds, daily lessons, and honest progress.</p>
+              <div class="social-channel-buttons">
+                <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="social-channel-btn insta-gradient-btn" data-magnetic>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  <span>Instagram @devwithbhavya ↗</span>
+                </a>
+                <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" rel="noopener" class="social-channel-btn yt-btn" data-magnetic>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>YouTube @bhavyak7 ↗</span>
+                </a>
+              </div>
             </div>
 
-            <!-- Current Focus Card -->
-            <div class="editorial-card dark-card">
-              <div class="card-tag gold">ACTIVE FOCUS</div>
-              <div class="pillars-flex">
-                <span class="pillar-chip">Python</span>
-                <span class="pillar-chip">HTML & CSS</span>
-                <span class="pillar-chip">JavaScript</span>
-                <span class="pillar-chip">Git & GitHub</span>
-                <span class="pillar-chip">Fundamentals</span>
-                <span class="pillar-chip">Problem Solving</span>
-              </div>
+            <!-- Long-term Goals Card -->
+            <div class="editorial-card red-accent-border">
+              <div class="card-tag tag-red">VISION</div>
+              <h3 class="card-title-lg">Long-Term Goals</h3>
+              <ul class="styled-list">
+                <li><span class="list-bullet bullet-red"></span> Become an exceptional software engineer</li>
+                <li><span class="list-bullet bullet-blue"></span> Master AI and Machine Learning</li>
+                <li><span class="list-bullet bullet-yellow"></span> Build products used by thousands of people</li>
+                <li><span class="list-bullet bullet-red"></span> Contribute to open-source projects</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -190,8 +222,8 @@
         <div class="section-header-editorial">
           <span class="section-num">03</span>
           <div class="section-title-wrap">
-            <span class="sub-label">CHRONOLOGY</span>
-            <h2 class="section-heading">MY JOURNEY<span class="accent-dot">.</span></h2>
+            <span class="sub-label text-red">CHRONOLOGY</span>
+            <h2 class="section-heading">MY JOURNEY<span class="accent-dot-blue">.</span></h2>
           </div>
         </div>
 
@@ -203,26 +235,26 @@
           <div class="timeline-items">
             <!-- Phase 1 -->
             <div class="timeline-item timeline-left">
-              <div class="timeline-date-badge">PHASE 1</div>
+              <div class="timeline-date-badge badge-red">PHASE 1</div>
               <div class="timeline-content-box">
                 <div class="timeline-icon-wrap">📚</div>
                 <h3>JEE Preparation</h3>
                 <p>Spent around 1.5 years preparing for JEE. Built discipline and consistency, but realized my real passion was software engineering rather than competitive entrance exams. This decision completely changed my direction.</p>
                 <div class="timeline-tags">
-                  <span>Discipline</span><span>Consistency</span><span>Career Pivot</span>
+                  <span class="tag-red-bg">Discipline</span><span>Consistency</span><span>Career Pivot</span>
                 </div>
               </div>
             </div>
 
             <!-- Phase 2 -->
             <div class="timeline-item timeline-right">
-              <div class="timeline-date-badge">PHASE 2</div>
+              <div class="timeline-date-badge badge-blue">PHASE 2</div>
               <div class="timeline-content-box">
                 <div class="timeline-icon-wrap">💻</div>
                 <h3>Starting From Scratch (HTML & CSS)</h3>
                 <p>Began learning programming from the basics. Started with semantic HTML, responsive layouts, Flexbox, CSS Grid, media queries, animations, and modern UI design principles.</p>
                 <div class="timeline-tags">
-                  <span>Semantic HTML</span><span>Flexbox & Grid</span><span>Responsive UI</span>
+                  <span class="tag-blue-bg">Semantic HTML</span><span>Flexbox & Grid</span><span>Responsive UI</span>
                 </div>
               </div>
             </div>
@@ -242,26 +274,26 @@
 
             <!-- Phase 4 -->
             <div class="timeline-item timeline-right">
-              <div class="timeline-date-badge">PHASE 4</div>
+              <div class="timeline-date-badge badge-blue">PHASE 4</div>
               <div class="timeline-content-box">
                 <div class="timeline-icon-wrap">🛠️</div>
                 <h3>Built First Projects</h3>
                 <p>Rather than endlessly consuming tutorials, I started building projects. Every project taught me debugging, file handling, and software development.</p>
                 <div class="timeline-tags">
-                  <span>Hands-on Code</span><span>Debugging</span><span>File Handling</span>
+                  <span class="tag-blue-bg">Hands-on Code</span><span>Debugging</span><span>File Handling</span>
                 </div>
               </div>
             </div>
 
             <!-- Phase 5 -->
             <div class="timeline-item timeline-left">
-              <div class="timeline-date-badge">PHASE 5</div>
+              <div class="timeline-date-badge badge-red">PHASE 5</div>
               <div class="timeline-content-box yellow-bg">
-                <div class="timeline-icon-wrap">🚀</div>
-                <h3>Public Journey & Continuously Shipping</h3>
-                <p>Started sharing what I build, what I learn, and project lessons on social media to inspire other students starting from zero while continuously shipping better software.</p>
+                <div class="timeline-icon-wrap">📸</div>
+                <h3>Public Journey (@devwithbhavya & @bhavyak7)</h3>
+                <p>Started sharing what I build, what I learn, and project lessons publicly on Instagram <a href="https://instagram.com/devwithbhavya" target="_blank" style="color:#111; font-weight:800;">@devwithbhavya</a> and YouTube <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" style="color:#111; font-weight:800;">@bhavyak7</a> to inspire students starting from zero.</p>
                 <div class="timeline-tags">
-                  <span>Public Learning</span><span>Shipping Projects</span><span>Growth</span>
+                  <span class="tag-red-bg">Instagram @devwithbhavya</span><span>YouTube @bhavyak7</span><span>Public Growth</span>
                 </div>
               </div>
             </div>
@@ -276,8 +308,8 @@
         <div class="section-header-editorial">
           <span class="section-num">04</span>
           <div class="section-title-wrap">
-            <span class="sub-label">HANDS-ON WORK</span>
-            <h2 class="section-heading">PROJECTS<span class="accent-dot">.</span></h2>
+            <span class="sub-label text-blue">HANDS-ON WORK</span>
+            <h2 class="section-heading">PROJECTS<span class="accent-dot-red">.</span></h2>
           </div>
         </div>
 
@@ -289,14 +321,14 @@
             <div class="project-visual">
               <div class="project-img-placeholder dark-accent">
                 <div class="code-art-preview">
-                  <span>&lt;section class="hero"&gt;</span>
+                  <span class="code-red">&lt;section class="hero"&gt;</span>
                   <span>  &lt;h1&gt;Unlimited Movies&lt;/h1&gt;</span>
-                  <span>&lt;/section&gt;</span>
+                  <span class="code-red">&lt;/section&gt;</span>
                 </div>
               </div>
             </div>
             <div class="project-details">
-              <span class="project-tag-category">FRONTEND RECREATION</span>
+              <span class="project-tag-category tag-red">FRONTEND RECREATION</span>
               <h3 class="project-title">Netflix Landing Page Clone</h3>
               <p class="project-desc"><strong>Problem Solved:</strong> Recreated a real-world high-traffic streaming landing page to master complex CSS layouts and modern UI design.</p>
               <ul class="project-feature-list">
@@ -304,7 +336,7 @@
                 <li><strong>Challenges & Learning:</strong> Perfecting media queries for mobile viewports and animating FAQ accordion transitions cleanly without layout jumps.</li>
               </ul>
               <div class="project-tech-stack">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flexbox & Grid</span>
+                <span class="chip-red-sm">HTML</span><span class="chip-blue-sm">CSS</span><span>JavaScript</span><span>Flexbox & Grid</span>
               </div>
             </div>
           </article>
@@ -316,13 +348,13 @@
               <div class="project-img-placeholder yellow-accent">
                 <div class="notes-art-preview">
                   <span>📁 Downloads/</span>
-                  <span> ├── 🖼️ Images/ (.jpg, .png)</span>
-                  <span> ├── 📄 Documents/ (.pdf)</span>
+                  <span class="text-blue-dark"> ├── 🖼️ Images/ (.jpg, .png)</span>
+                  <span class="text-red-dark"> ├── 📄 Documents/ (.pdf)</span>
                 </div>
               </div>
             </div>
             <div class="project-details">
-              <span class="project-tag-category">PYTHON AUTOMATION</span>
+              <span class="project-tag-category tag-blue">PYTHON AUTOMATION</span>
               <h3 class="project-title">Downloads Folder Organizer</h3>
               <p class="project-desc"><strong>Problem Solved:</strong> Eliminates digital clutter by automatically scanning messy download folders and organizing files into categorized subfolders.</p>
               <ul class="project-feature-list">
@@ -330,7 +362,7 @@
                 <li><strong>Challenges & Learning:</strong> Handling edge cases like duplicate filenames, permission flags, and understanding Python file system operations using <code>pathlib</code> and <code>shutil</code>.</li>
               </ul>
               <div class="project-tech-stack">
-                <span>Python</span><span>pathlib</span><span>shutil</span><span>os</span>
+                <span class="chip-blue-sm">Python</span><span>pathlib</span><span>shutil</span><span>os</span>
               </div>
             </div>
           </article>
@@ -339,16 +371,16 @@
           <article class="project-card-editorial">
             <div class="project-num">03</div>
             <div class="project-visual">
-              <div class="project-img-placeholder dark-accent">
+              <div class="project-img-placeholder dark-accent border-red">
                 <div class="code-art-preview">
                   <span>key = Fernet.generate_key()</span>
-                  <span>cipher = Fernet(key)</span>
-                  <span>encrypted = cipher.encrypt(pwd)</span>
+                  <span class="code-blue">cipher = Fernet(key)</span>
+                  <span class="code-red">encrypted = cipher.encrypt(pwd)</span>
                 </div>
               </div>
             </div>
             <div class="project-details">
-              <span class="project-tag-category">SECURITY & ENCRYPTION</span>
+              <span class="project-tag-category tag-red">SECURITY & ENCRYPTION</span>
               <h3 class="project-title">Python Password Manager</h3>
               <p class="project-desc"><strong>Problem Solved:</strong> Securely stores credentials locally with encryption rather than plain text files.</p>
               <ul class="project-feature-list">
@@ -356,24 +388,23 @@
                 <li><strong>Challenges & Learning:</strong> Mastered symmetric encryption concepts, key storage management, and security fundamentals in Python programming.</li>
               </ul>
               <div class="project-tech-stack">
-                <span>Python</span><span>cryptography (Fernet)</span><span>Security</span>
+                <span class="chip-blue-sm">Python</span><span class="chip-red-sm">cryptography (Fernet)</span><span>Security</span>
               </div>
             </div>
           </article>
 
-          <!-- Project 4 & 5 Grid for smaller projects -->
+          <!-- Sub Projects Grid -->
           <div class="sub-projects-grid">
-            
-            <div class="editorial-card yellow-accent-border">
-              <div class="card-tag">DEVELOPER TOOLING</div>
+            <div class="editorial-card blue-accent-border">
+              <div class="card-tag tag-blue">DEVELOPER TOOLING</div>
               <h3 class="card-title-lg">VS Code Automation Tool</h3>
               <p class="card-sub">Python • os • subprocess</p>
               <p class="project-desc"><strong>Problem & Purpose:</strong> Automates opening Visual Studio Code and launching project directories instantly to save time during daily setup.</p>
               <p class="small-learning"><strong>What I Learned:</strong> How to spawn child processes and control external desktop software via Python's <code>subprocess</code> module.</p>
             </div>
 
-            <div class="editorial-card yellow-accent-border">
-              <div class="card-tag">WORKFLOW AUTOMATION</div>
+            <div class="editorial-card red-accent-border">
+              <div class="card-tag tag-red">WORKFLOW AUTOMATION</div>
               <h3 class="card-title-lg">Git Initialization Automation</h3>
               <p class="card-sub">Python • subprocess</p>
               <p class="project-desc"><strong>Problem & Purpose:</strong> Reduces repetitive terminal commands by automatically initializing Git repositories and initial commits for new coding projects.</p>
@@ -384,10 +415,9 @@
               <div class="card-tag gold">CORE SYSTEM LABS</div>
               <h3 class="card-title-lg" style="color:#FFF;">File Handling & Console Projects</h3>
               <p class="card-sub">Python Fundamentals</p>
-              <p class="project-desc" style="color:#EEE;"><strong>Projects Built:</strong> Quiz Game, Number Guessing Game, Calculator, Currency Converter, Basic Account Manager, and File Manipulation Scripts (reading, writing, updating, creating, deleting files).</p>
+              <p class="project-desc" style="color:#EEE;"><strong>Projects Built:</strong> Quiz Game, Number Guessing Game, Calculator, Currency Converter, Basic Account Manager, and File Manipulation Scripts.</p>
               <p class="small-learning" style="color:#DDD;"><strong>What I Learned:</strong> Deepened programming logic, state management, and robust input validation.</p>
             </div>
-
           </div>
 
         </div>
@@ -400,37 +430,37 @@
         <div class="section-header-editorial">
           <span class="section-num">05</span>
           <div class="section-title-wrap">
-            <span class="sub-label">TECHNICAL COMPETENCIES</span>
-            <h2 class="section-heading">SKILLS & ROADMAP<span class="accent-dot">.</span></h2>
+            <span class="sub-label text-red">TECHNICAL COMPETENCIES</span>
+            <h2 class="section-heading">SKILLS & ROADMAP<span class="accent-dot-blue">.</span></h2>
           </div>
         </div>
 
         <div class="skills-categorized-grid">
           
           <!-- Box 1: Languages -->
-          <div class="skill-cat-box">
+          <div class="skill-cat-box blue-top">
             <div class="cat-title-wrap">
-              <span class="cat-num">01</span>
+              <span class="cat-num text-blue">01</span>
               <h3>LANGUAGES</h3>
             </div>
             <div class="chips-list">
-              <span class="skill-pill">Python</span>
-              <span class="skill-pill">HTML</span>
+              <span class="skill-pill chip-blue">Python</span>
+              <span class="skill-pill chip-red">HTML</span>
               <span class="skill-pill">CSS</span>
-              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill chip-blue">JavaScript</span>
             </div>
           </div>
 
           <!-- Box 2: Tools -->
-          <div class="skill-cat-box">
+          <div class="skill-cat-box red-top">
             <div class="cat-title-wrap">
-              <span class="cat-num">02</span>
+              <span class="cat-num text-red">02</span>
               <h3>TOOLS</h3>
             </div>
             <div class="chips-list">
               <span class="skill-pill">Git</span>
-              <span class="skill-pill">GitHub</span>
-              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill chip-blue">GitHub</span>
+              <span class="skill-pill chip-red">VS Code</span>
             </div>
           </div>
 
@@ -441,26 +471,26 @@
               <h3>CURRENTLY LEARNING</h3>
             </div>
             <ul class="styled-list">
-              <li><span class="list-bullet"></span> Advanced JavaScript</li>
-              <li><span class="list-bullet"></span> Better UI/UX Design</li>
-              <li><span class="list-bullet"></span> Python Automation</li>
-              <li><span class="list-bullet"></span> Software Engineering Practices</li>
-              <li><span class="list-bullet"></span> Data Structures & Algorithms</li>
+              <li><span class="list-bullet bullet-blue"></span> Advanced JavaScript</li>
+              <li><span class="list-bullet bullet-red"></span> Better UI/UX Design</li>
+              <li><span class="list-bullet bullet-yellow"></span> Python Automation</li>
+              <li><span class="list-bullet bullet-blue"></span> Software Engineering Practices</li>
+              <li><span class="list-bullet bullet-red"></span> Data Structures & Algorithms</li>
             </ul>
           </div>
 
           <!-- Box 4: Future Learning Roadmap -->
           <div class="skill-cat-box roadmap">
             <div class="cat-title-wrap">
-              <span class="cat-num">04</span>
+              <span class="cat-num text-blue">04</span>
               <h3>FUTURE ROADMAP</h3>
             </div>
             <div class="chips-list">
-              <span class="skill-pill outline">React</span>
-              <span class="skill-pill outline">Node.js</span>
+              <span class="skill-pill outline chip-blue-border">React</span>
+              <span class="skill-pill outline chip-red-border">Node.js</span>
               <span class="skill-pill outline">SQL</span>
-              <span class="skill-pill outline">Machine Learning</span>
-              <span class="skill-pill outline">Artificial Intelligence</span>
+              <span class="skill-pill outline chip-blue-border">Machine Learning</span>
+              <span class="skill-pill outline chip-red-border">Artificial Intelligence</span>
               <span class="skill-pill outline">System Design</span>
             </div>
           </div>
@@ -475,8 +505,8 @@
         <div class="section-header-editorial">
           <span class="section-num">06</span>
           <div class="section-title-wrap">
-            <span class="sub-label">OBJECTIVES</span>
-            <h2 class="section-heading">CURRENT GOALS<span class="accent-dot">.</span></h2>
+            <span class="sub-label text-blue">OBJECTIVES</span>
+            <h2 class="section-heading">CURRENT GOALS<span class="accent-dot-red">.</span></h2>
           </div>
         </div>
 
@@ -487,19 +517,19 @@
             <p class="bento-text">Aiming to become a highly skilled software engineer through consistent learning, real-world project shipping, and continuous improvement.</p>
           </div>
 
-          <div class="bento-card">
+          <div class="bento-card red-hover-border">
             <div class="bento-icon">🛠️</div>
             <h3 class="bento-title-sm">Build Complex Software</h3>
             <p class="bento-text-sm">Transitioning from beginner scripts to increasingly complex, multi-module applications.</p>
           </div>
 
-          <div class="bento-card">
+          <div class="bento-card blue-hover-border">
             <div class="bento-icon">🌐</div>
             <h3 class="bento-title-sm">Open-Source Contributions</h3>
             <p class="bento-text-sm">Preparing to start contributing meaningfully to public open-source developer tools.</p>
           </div>
 
-          <div class="bento-card bento-wide dark-bento">
+          <div class="bento-card bento-wide dark-bento border-blue-top">
             <div class="bento-badge gold">AI & ML PREPARATION</div>
             <h3 class="bento-title">Preparing for AI & Machine Learning</h3>
             <p class="bento-text">Mastering mathematical logic, data structures, and Python fundamentals to enter the field of AI and Machine Learning.</p>
@@ -513,7 +543,7 @@
       <div class="container">
         <div class="section-header-editorial center">
           <span class="section-num">07</span>
-          <span class="sub-label">GUIDING PRINCIPLES</span>
+          <span class="sub-label text-blue">GUIDING PRINCIPLES</span>
         </div>
 
         <div class="philosophy-manifesto">
@@ -524,15 +554,15 @@
 
         <div class="philosophy-sub-grid">
           <div class="phil-box">
-            <h4>01 / PROJECTS OVER CERTIFICATES</h4>
+            <h4 class="text-yellow">01 / PROJECTS OVER CERTIFICATES</h4>
             <p>I focus on creating projects, understanding how technologies work, writing clean code, and improving every week.</p>
           </div>
           <div class="phil-box">
-            <h4>02 / EVERY BUG IS A LESSON</h4>
+            <h4 class="text-red">02 / EVERY BUG IS A LESSON</h4>
             <p>Every project is an opportunity to improve. Every bug is something valuable to learn from and debug masterfully.</p>
           </div>
           <div class="phil-box">
-            <h4>03 / CONSISTENCY OVER MOTIVATION</h4>
+            <h4 class="text-blue">03 / CONSISTENCY OVER MOTIVATION</h4>
             <p>Motivation comes and goes, but daily disciplined consistency is what builds an exceptional software engineering career.</p>
           </div>
         </div>
@@ -545,11 +575,19 @@
         <div class="contact-editorial-card">
           <div class="contact-header-wrap">
             <span class="section-num">08</span>
-            <h2 class="contact-heading">LET'S CONNECT<span class="accent-dot">.</span></h2>
-            <p class="contact-sub">I document my learning journey publicly on social media and GitHub to inspire other students starting from zero.</p>
+            <h2 class="contact-heading">LET'S CONNECT<span class="accent-dot-red">.</span></h2>
+            <p class="contact-sub">I document my full coding journey publicly on Instagram and YouTube. Follow along or get in touch!</p>
           </div>
 
           <div class="contact-interactive-area">
+            <!-- Featured Instagram Callout -->
+            <div class="contact-social-featured-box">
+              <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="contact-insta-hero-btn" data-magnetic>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span>Follow @devwithbhavya on Instagram ↗</span>
+              </a>
+            </div>
+
             <div class="email-copy-box" id="email-box" data-magnetic>
               <span class="email-text">bhavyakothari.dev@gmail.com</span>
               <button class="btn-copy" id="copy-btn">
@@ -559,9 +597,10 @@
             </div>
 
             <div class="social-pills-row">
+              <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="social-pill pill-highlight-insta" data-magnetic>📸 Instagram @devwithbhavya ↗</a>
+              <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" rel="noopener" class="social-pill pill-highlight-yt" data-magnetic>▶ YouTube @bhavyak7 ↗</a>
               <a href="https://github.com" target="_blank" rel="noopener" class="social-pill" data-magnetic>GitHub ↗</a>
               <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill" data-magnetic>LinkedIn ↗</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener" class="social-pill" data-magnetic>Twitter / X ↗</a>
             </div>
           </div>
         </div>
@@ -576,7 +615,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <span class="footer-logo">BHAVYA KOTHARI</span>
-          <span class="footer-sub">17-YEAR-OLD CS STUDENT • LEARNING BY BUILDING</span>
+          <span class="footer-sub">@devwithbhavya • 17-YEAR-OLD CS STUDENT</span>
         </div>
 
         <button class="back-to-top-btn" id="back-to-top" data-magnetic>
@@ -592,8 +631,9 @@
       <div class="footer-bottom">
         <p>© 2026 Bhavya Kothari. Documenting the software engineering journey.</p>
         <div class="footer-mini-links">
+          <a href="https://instagram.com/devwithbhavya" target="_blank">Instagram</a>
+          <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank">YouTube</a>
           <a href="#hero">Home</a>
-          <a href="#about">About</a>
           <a href="#projects">Projects</a>
         </div>
       </div>

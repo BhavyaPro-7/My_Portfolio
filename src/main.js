@@ -86,7 +86,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Header Scroll Glassmorphism & Active State
+  // 3. Mobile Navigation Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (mobileMenuBtn && mobileNavOverlay) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileNavOverlay.classList.toggle('active');
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
+      });
+    });
+  }
+
+  // 4. Header Scroll Glassmorphism
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -96,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. GSAP Scroll Animations
+  // 5. GSAP Scroll Animations
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     
     // Hero Entrance Animation
@@ -203,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Email One-Click Copy & Toast
+  // 6. Email One-Click Copy & Toast
   const copyBtn = document.getElementById('copy-btn');
   const emailBox = document.getElementById('email-box');
   const toast = document.getElementById('toast');
@@ -211,7 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (copyBtn && emailBox) {
     const emailToCopy = "bhavyakothari.dev@gmail.com";
 
-    const performCopy = () => {
+    const performCopy = (e) => {
+      e.stopPropagation();
       navigator.clipboard.writeText(emailToCopy).then(() => {
         if (toast) {
           toast.classList.add('show');
@@ -226,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     emailBox.addEventListener('click', performCopy);
   }
 
-  // 6. Back to Top Smooth Scroll
+  // 7. Back to Top Smooth Scroll
   const backToTopBtn = document.getElementById('back-to-top');
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
