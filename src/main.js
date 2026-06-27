@@ -1,11 +1,13 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
   
-  // 1. Initialize Lenis Smooth Scroll
+  // 1. Initialize Lenis Smooth Scroll (Optimised for Mobile & Touchscreens)
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
+    smoothTouch: true,
+    touchMultiplier: 1.5,
   });
 
   function raf(time) {
@@ -115,16 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. GSAP Scroll Animations
+  // 5. GSAP Scroll Animations (Optimised for Mobile & PC)
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     
     // Hero Entrance Animation
     const heroTl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
     
     heroTl.from('.hero-badge-row', { y: 30, opacity: 0, delay: 0.2 })
-          .from('.title-line', { y: 80, opacity: 0, stagger: 0.15 }, '-=0.8')
-          .from('.yellow-highlight-box', { scale: 0.8, rotate: 0, opacity: 0 }, '-=0.6')
-          .from('.hero-subtitle', { y: 30, opacity: 0 }, '-=0.6')
+          .from('.title-line', { y: 60, opacity: 0, stagger: 0.15 }, '-=0.8')
+          .from('.yellow-highlight-box', { scale: 0.85, opacity: 0 }, '-=0.6')
+          .from('.hero-subtitle', { y: 25, opacity: 0 }, '-=0.6')
           .from('.hero-cta-group', { y: 20, opacity: 0 }, '-=0.4')
           .from('.hero-graphic-box', { scale: 0.9, opacity: 0, duration: 1 }, '-=0.6');
 
@@ -132,23 +134,23 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.lead-text', {
       scrollTrigger: {
         trigger: '.section-about',
-        start: 'top 75%',
+        start: 'top 85%',
       },
-      y: 40,
+      y: 35,
       opacity: 0,
-      duration: 1,
+      duration: 0.9,
       ease: 'power3.out'
     });
 
     gsap.from('.about-cards-col .editorial-card', {
       scrollTrigger: {
         trigger: '.about-cards-col',
-        start: 'top 80%',
+        start: 'top 85%',
       },
-      y: 50,
+      y: 40,
       opacity: 0,
-      stagger: 0.2,
-      duration: 1,
+      stagger: 0.18,
+      duration: 0.9,
       ease: 'power3.out'
     });
 
@@ -156,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.to('#timeline-progress', {
       scrollTrigger: {
         trigger: '.timeline-wrapper',
-        start: 'top 70%',
-        end: 'bottom 80%',
+        start: 'top 75%',
+        end: 'bottom 85%',
         scrub: true
       },
       height: '100%',
@@ -170,9 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.from(item, {
         scrollTrigger: {
           trigger: item,
-          start: 'top 85%',
+          start: 'top 88%',
         },
-        y: 50,
+        y: 40,
         opacity: 0,
         duration: 0.8,
         ease: 'power3.out'
@@ -185,11 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: 'top 80%',
+          start: 'top 88%',
         },
-        y: 60,
+        y: 45,
         opacity: 0,
-        duration: 1,
+        duration: 0.9,
         ease: 'power3.out'
       });
     });
@@ -198,9 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.skill-cat-box', {
       scrollTrigger: {
         trigger: '.skills-categorized-grid',
-        start: 'top 80%',
+        start: 'top 88%',
       },
-      y: 40,
+      y: 35,
       opacity: 0,
       stagger: 0.1,
       duration: 0.8,
@@ -211,13 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('.bento-card', {
       scrollTrigger: {
         trigger: '.bento-focus-grid',
-        start: 'top 80%',
+        start: 'top 88%',
       },
-      scale: 0.95,
-      y: 40,
+      scale: 0.96,
+      y: 35,
       opacity: 0,
-      stagger: 0.12,
-      duration: 0.9,
+      stagger: 0.1,
+      duration: 0.85,
       ease: 'power3.out'
     });
   }
