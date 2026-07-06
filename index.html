@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhavya Kothari — Software Engineer & Student</title>
-  <meta name="description" content="Portfolio of Bhavya Kothari, a 17-year-old software engineer focused on building real products, Python automation, systems, and documenting progress publicly.">
+  <!-- ==========================================
+       [EDIT HERE]: SITE TITLE & DESCRIPTION
+       ========================================== -->
+  <title>Bhavya Kothari — Computer Science Student & Builder</title>
+  <meta name="description" content="Portfolio of Bhavya Kothari, a 17-year-old Computer Science student documenting progress, learning Python, Web Development, and Robotics.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
-  <!-- Lenis CSS -->
+  <!-- Lenis CSS (Smooth Scrolling) -->
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
   
   <!-- Main CSS -->
@@ -19,43 +22,61 @@
 </head>
 <body>
 
-  <!-- Top Scroll Progress Indicator -->
+  <!-- Top Scroll Progress Indicator (Sleek line tracking page reading progress) -->
   <div class="scroll-progress-bar" id="scroll-progress"></div>
 
-  <!-- Custom Cursor Elements -->
+  <!-- Custom Cursor Elements (Hides on mobile, follows mouse on PC) -->
   <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-outline" id="cursor-outline"></div>
+  <div class="cursor-outline" id="cursor-outline">
+    <span class="cursor-label" id="cursor-label"></span>
+  </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast Notification (Popup feed when email address is copied) -->
   <div class="toast" id="toast">Copied to clipboard! 🚀</div>
 
-  <!-- Command Palette (Ctrl+K) Overlay -->
+  <!-- Command Palette (Ctrl+K / Cmd+K) Overlay -->
   <div class="command-palette-overlay" id="cmd-overlay">
     <div class="command-palette-modal">
       <div class="cmd-input-wrap">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="text" id="cmd-input" placeholder="Type a command or search section..." autocomplete="off">
+        <!-- Search bar inside Cmd+K command palette -->
+        <input type="text" id="cmd-input" placeholder="Search section or link..." autocomplete="off">
         <span class="cmd-badge-esc">ESC</span>
       </div>
       <div class="cmd-results-list" id="cmd-results">
         <div class="cmd-group-label">Navigation</div>
         <a href="#projects" class="cmd-item" data-cmd-link>
-          <span>Explore Featured Projects</span>
+          <span>Explore My Projects</span>
           <span class="cmd-shortcut">↵</span>
         </a>
         <a href="#about" class="cmd-item" data-cmd-link>
           <span>About My Journey</span>
           <span class="cmd-shortcut">↵</span>
         </a>
-        <a href="#build-log" class="cmd-item" data-cmd-link>
-          <span>View Build Log</span>
+        <a href="#system-stats" class="cmd-item" data-cmd-link>
+          <span>System Stats & Command Center</span>
           <span class="cmd-shortcut">↵</span>
         </a>
-        <a href="#currently" class="cmd-item" data-cmd-link>
-          <span>Currently Building & Learning</span>
+        <a href="#knowledge-vault" class="cmd-item" data-cmd-link>
+          <span>Knowledge Vault & Notes</span>
           <span class="cmd-shortcut">↵</span>
+        </a>
+        <a href="#quotes-comments" class="cmd-item" data-cmd-link>
+          <span>Quotes & Comments Section</span>
+          <span class="cmd-shortcut">↵</span>
+        </a>
+        <a href="./blog.html" class="cmd-item">
+          <span>Blog & Quotes Page</span>
+          <span class="cmd-shortcut">↗</span>
+        </a>
+        <a href="./resources.html" class="cmd-item">
+          <span>Resource Hub & Directory</span>
+          <span class="cmd-shortcut">↗</span>
         </a>
         <div class="cmd-group-label">Socials & Contact</div>
+        <!-- ==========================================
+             [EDIT HERE]: INSTAGRAM & YOUTUBE URLS IN COMMAND PALETTE
+             ========================================== -->
         <a href="https://instagram.com/devwithbhavya" target="_blank" class="cmd-item">
           <span>Instagram (@devwithbhavya)</span>
           <span class="cmd-shortcut">↗</span>
@@ -68,12 +89,12 @@
     </div>
   </div>
 
-  <!-- Project Case Study Modal -->
+  <!-- Project Case Study Modal (Renders popups when project cards are clicked) -->
   <div class="case-study-modal-overlay" id="case-study-modal">
     <div class="case-study-modal-container">
       <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">&times;</button>
       <div class="modal-body-content" id="modal-body">
-        <!-- Dynamic content injected via JS -->
+        <!-- Content gets loaded dynamically from main.js on click -->
       </div>
     </div>
   </div>
@@ -81,28 +102,39 @@
   <!-- Sticky Header -->
   <header class="site-header">
     <div class="header-inner">
+      <!-- ==========================================
+           [EDIT HERE]: SITE BRAND LOGO INITIALS & BADGE LABEL
+           ========================================== -->
       <a href="#hero" class="brand-badge" data-magnetic>
         <span class="brand-initials">BK</span>
-        <span class="brand-year">ENGINEER</span>
+        <span class="brand-year text-red">STUDENT</span>
       </a>
       
-      <!-- Desktop Nav -->
+      <!-- Desktop Navigation Menu links -->
       <nav class="main-nav">
         <a href="#about" class="nav-link">About</a>
         <a href="#projects" class="nav-link">Projects</a>
-        <a href="#build-log" class="nav-link">Build Log</a>
-        <a href="#currently" class="nav-link">Currently</a>
+        <a href="#system-stats" class="nav-link">Stats</a>
+        <a href="#knowledge-vault" class="nav-link">Vault</a>
+        <a href="#quotes-comments" class="nav-link">Comments</a>
+        <a href="./blog.html" class="nav-link text-red">Blog</a>
+        <a href="./resources.html" class="nav-link highlight-resources">Resources</a>
         <a href="#contact" class="nav-link nav-btn-pill">Contact</a>
       </nav>
 
       <div class="header-right-group">
+        <!-- Command Palette Trigger Button (⌘K) -->
         <button class="cmd-trigger-btn" id="cmd-trigger-btn">
           <span>⌘K</span>
         </button>
-        <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="status-indicator header-insta-btn">
+        <!-- ==========================================
+             [EDIT HERE]: STICKY NAV INSTAGRAM URL & TEXT
+             ========================================== -->
+        <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="status-indicator header-insta-btn" style="color: black;">
           <span class="status-dot red-dot-anim"></span>
           <span class="status-text">@devwithbhavya</span>
         </a>
+        <!-- Hamburger Menu toggle for mobile screens -->
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -110,13 +142,16 @@
       </div>
     </div>
 
-    <!-- Mobile Navigation Overlay -->
+    <!-- Mobile Navigation Overlay Drawer -->
     <div class="mobile-nav-overlay" id="mobile-nav-overlay">
       <div class="mobile-nav-links">
         <a href="#about" class="mobile-nav-link">About</a>
         <a href="#projects" class="mobile-nav-link">Projects</a>
-        <a href="#build-log" class="mobile-nav-link">Build Log</a>
-        <a href="#currently" class="mobile-nav-link">Currently</a>
+        <a href="#system-stats" class="mobile-nav-link">System Stats</a>
+        <a href="#knowledge-vault" class="mobile-nav-link">Knowledge Vault</a>
+        <a href="#quotes-comments" class="mobile-nav-link">Quotes & Comments</a>
+        <a href="./blog.html" class="mobile-nav-link text-red">Blog Page ↗</a>
+        <a href="./resources.html" class="mobile-nav-link text-yellow">Resources Hub ↗</a>
         <a href="#contact" class="mobile-nav-link mobile-btn-pill">Contact</a>
         <a href="https://instagram.com/devwithbhavya" target="_blank" class="mobile-nav-link highlight-insta">Instagram @devwithbhavya ↗</a>
       </div>
@@ -125,72 +160,96 @@
 
   <main id="main-content">
 
-    <!-- 01 HERO SECTION -->
-    <section id="hero" class="section-hero">
-      <div class="hero-container">
+    <!-- 01 HERO SECTION (Has glowing background blur shapes & staggered split text entrance) -->
+    <section id="hero" class="section-hero" data-cursor-text="HELLO">
+      
+      <!-- Translucent Glowing Abstract Background Shapes (Floating background visual mesh) -->
+      <div class="hero-bg-shapes">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+      </div>
+
+      <!-- Centered container avoiding screen margins collision -->
+      <div class="container hero-inner-container">
         
         <div class="hero-content">
+          <!-- ==========================================
+               [EDIT HERE]: HERO PILLED BADGES
+               ========================================== -->
           <div class="hero-badge-row">
-            <span class="minimal-pill">Software Engineering Student</span>
+            <span class="minimal-pill border-glow-yellow text-yellow bg-card">17-Year-Old Builder</span>
             <span class="minimal-pill muted">India</span>
           </div>
 
+          <!-- ==========================================
+               [EDIT HERE]: HERO MAIN TITLES
+               ========================================== -->
           <h1 class="hero-title">
-            Bhavya Kothari<span class="dot-accent">.</span>
+            <span class="hero-title-line"><span class="hero-title-word">Bhavya</span></span>
+            <span class="hero-title-line"><span class="hero-title-word">Kothari</span><span class="dot-accent">.</span></span>
           </h1>
 
+          <!-- ==========================================
+               [EDIT HERE]: HERO SUBTITLE & TAGLINE STORY
+               ========================================== -->
           <p class="hero-subtitle">
-            A 17-year-old developer focused on building real products, mastering software fundamentals, and automating workflows. Documenting my journey publicly on <a href="https://instagram.com/devwithbhavya" target="_blank" class="hero-link">Instagram</a> & <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" class="hero-link">YouTube</a>.
+            A 17-year-old Computer Science student & builder documenting my journey into Software Engineering, AI, and Robotics. Documenting everything publicly on <a href="https://instagram.com/devwithbhavya" target="_blank" class="hero-link text-red">Instagram</a> & <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" class="hero-link text-red">YouTube</a>.
           </p>
 
           <div class="hero-cta-group">
             <a href="#projects" class="btn-primary" data-magnetic>
-              View Case Studies
+              View My Work
               <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="https://github.com/BhavyaPro-7" target="_blank" rel="noopener" class="btn-secondary" data-magnetic>
-              GitHub ↗
+            <a href="./blog.html" class="btn-secondary" data-magnetic>
+              Read My Blog ➔
             </a>
           </div>
         </div>
 
-        <!-- Real Showcase Interactive Browser Mockup -->
+        <!-- Real Showcase Interactive Browser Mockup (Displays your main project preview card) -->
         <div class="hero-browser-showcase" data-speed="1.02">
-          <div class="browser-window">
+          <div class="browser-window border-glow-yellow">
             <div class="browser-header">
               <div class="browser-dots">
                 <span class="dot-red"></span>
                 <span class="dot-yellow"></span>
                 <span class="dot-green"></span>
               </div>
+              <!-- Address bar URL -->
               <div class="browser-address-bar">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>bhavya.dev/projects/downloads-organizer</span>
+                <span>bhavya.dev/projects/file-organizer</span>
               </div>
             </div>
+            <!-- Showcase content details -->
             <div class="browser-viewport">
               <div class="showcase-content-grid">
+                <!-- ==========================================
+                     [EDIT HERE]: BROWSER HERO SHOWCASE LABELS & VALUES
+                     ========================================== -->
                 <div class="showcase-info">
-                  <span class="showcase-tag">FEATURED PRODUCT</span>
-                  <h3>Python Downloads Organizer</h3>
-                  <p>Automated file categorization engine scanning system directories and structuring assets into clean filesystem hierarchies.</p>
+                  <span class="showcase-tag text-red font-mono">PYTHON AUTOMATION</span>
+                  <h3>Smart File Organizer</h3>
+                  <p>A Python CLI utility that structures unorganized files into extension-categorized directories automatically.</p>
                   <div class="showcase-metrics">
                     <div class="s-metric">
-                      <span class="s-val">100%</span>
-                      <span class="s-lbl">Automated</span>
+                      <span class="s-val text-red">5</span>
+                      <span class="s-lbl">Total Projects</span>
                     </div>
                     <div class="s-metric">
-                      <span class="s-val">0.2s</span>
-                      <span class="s-lbl">Execution</span>
+                      <span class="s-val text-yellow">100%</span>
+                      <span class="s-lbl">Practical Focus</span>
                     </div>
                   </div>
                 </div>
+                <!-- Simulated log output -->
                 <div class="showcase-terminal">
-                  <div class="term-line"><span class="term-prompt">$</span> python organizer.py --watch</div>
-                  <div class="term-line success">[✓] Scanned /Downloads (142 files)</div>
-                  <div class="term-line">[➜] Moved 42 images to /Images</div>
-                  <div class="term-line">[➜] Moved 18 PDFs to /Documents</div>
-                  <div class="term-line success">[✓] Cleanup completed cleanly.</div>
+                  <div class="term-line"><span class="term-prompt">$</span> python organizer.py</div>
+                  <div class="term-line success">✅ Files Organized: 15</div>
+                  <div class="term-line">[➜] Images: 7 | PDFs: 4</div>
+                  <div class="term-line success">Time Taken: 0.031s</div>
                 </div>
               </div>
             </div>
@@ -200,59 +259,70 @@
       </div>
     </section>
 
-    <!-- 02 SOCIAL PROOF / STATS SECTION -->
-    <section class="section-stats">
+    <!-- 02 SOCIAL PROOF / STATS SECTION (Automatically count increments based on ScrollTriggers) -->
+    <section class="section-stats" data-cursor-text="STATS">
       <div class="container">
+        <!-- ==========================================
+             [EDIT HERE]: SCROLL COUNTER TARGETS (data-target attribute value)
+             ========================================== -->
         <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Projects Shipped</span>
+          <div class="stat-card border-glow-yellow">
+            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-label">Projects Built</span>
           </div>
-          <div class="stat-card">
-            <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Git Commits</span>
+          <!-- Days Counter calculates dynamically from 1 March 2026 via main.js -->
+          <div class="stat-card border-glow-red">
+            <span class="stat-number-static" id="dynamic-days-counter">0</span>
+            <span class="stat-label">Days Coding Journey</span>
           </div>
-          <div class="stat-card">
+          <div class="stat-card border-glow-yellow">
             <span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
             <span class="stat-label">Instagram Community</span>
           </div>
-          <div class="stat-card">
+          <div class="stat-card border-glow-red">
             <span class="stat-number-static">100%</span>
-            <span class="stat-label">Daily Consistency</span>
+            <span class="stat-label">Learning Consistency</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 03 ABOUT ME SECTION -->
-    <section id="about" class="section-about">
+    <section id="about" class="section-about" data-cursor-text="MY STORY">
       <div class="container">
+        <!-- About Section Heading -->
         <div class="section-header-minimal">
-          <span class="sub-title">BACKGROUND</span>
-          <h2 class="section-heading">Architecting software, not chasing test scores<span class="dot-accent">.</span></h2>
+          <span class="sub-title text-red">BACKGROUND</span>
+          <h2 class="section-heading animate-text" data-text="Student building and learning fast">Student building and learning fast<span class="dot-accent">.</span></h2>
         </div>
 
         <div class="about-editorial-grid">
+          <!-- ==========================================
+               [EDIT HERE]: BIOGRAPHY TEXT PARAGRAPHS
+               ========================================== -->
           <div class="about-text-column">
             <p class="lead-paragraph">
-              I spent 1.5 years preparing for competitive engineering entrance exams (JEE). While it forged discipline, I realized my true obsessions were computer science, software design, and building real applications.
+              I started from competitive test preparation and now focusing 100% on software engineering, physics, and robotics. I believe in learning by building real, working systems.
             </p>
             <p class="body-paragraph">
-              I made a decisive pivot to software engineering. Instead of collecting paper certificates, I measure progress by shipping clean code, understanding systems from the metal up, and solving real problems.
+              My journey started on March 1, 2026. Instead of collecting certificates, complaing about my failures, I dedicate my time to understanding programming fundamentals, writing clean code, and documenting my progress publicly.
             </p>
           </div>
 
+          <!-- ==========================================
+               [EDIT HERE]: PROOF CARD BULLET POINTS
+               ========================================== -->
           <div class="about-proof-column">
-            <div class="proof-card">
+            <div class="proof-card border-glow-red">
               <div class="proof-header">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <h4>Proof of Execution</h4>
+                <h4 class="text-red">Proof of Progress</h4>
               </div>
               <ul class="proof-list">
-                <li><span>Pivoted from JEE to self-directed CS engineering</span></li>
-                <li><span>Mastered HTML, CSS, JavaScript, & Python fundamentals</span></li>
-                <li><span>Automated system workflows & built encryption utilities</span></li>
-                <li><span>Documenting daily progress to 5+ developers</span></li>
+                <li><span>Pivoted to software development to build real-world systems</span></li>
+                <li><span>Mastering Python programming & Object-Oriented design patterns</span></li>
+                <li><span>Studying math foundations for Artificial Intelligence / Machine Learning</span></li>
+                <li><span>Sharing my roadmap and coding streak to inspire other young builders</span></li>
               </ul>
             </div>
           </div>
@@ -261,36 +331,100 @@
     </section>
 
     <!-- 04 FEATURED PROJECTS & CASE STUDIES -->
-    <section id="projects" class="section-projects">
+    <section id="projects" class="section-projects" data-cursor-text="PROJECTS">
       <div class="container">
         <div class="section-header-minimal">
-          <span class="sub-title">CASE STUDIES</span>
-          <h2 class="section-heading">Selected Work<span class="dot-accent">.</span></h2>
+          <span class="sub-title text-yellow">PORTFOLIO</span>
+          <h2 class="section-heading animate-text" data-text="My Projects">My Projects<span class="dot-accent">.</span></h2>
         </div>
 
-        <div class="projects-grid">
+        <!-- ==========================================
+             [EDIT HERE]: PROJECTS GRID CARDS
+             Note: Every project's data-project-id attribute maps to the modal popup details inside src/main.js
+             ========================================== -->
+        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
           
-          <!-- Project Card 1 -->
-          <article class="project-card" data-project-id="netflix-clone">
+          <!-- Project 1: Smart File Organizer -->
+          <article class="project-card border-glow-yellow" data-project-id="file-organizer">
             <div class="project-image-wrapper">
               <div class="mockup-browser-mini">
                 <div class="mini-dots"><span></span><span></span><span></span></div>
-                <div class="mini-viewport preview-netflix">
+                <div class="mini-viewport">
                   <div class="preview-hero-sim">
-                    <span class="sim-title">NETFLIX CLONE</span>
-                    <span class="sim-tag">Responsive UI Engine</span>
+                    <span class="sim-title text-yellow">FILE ORGANIZER</span>
+                    <span class="sim-tag">Python Automation</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-cat">FRONTEND RECREATION</span>
+                <span class="project-cat text-red">PYTHON UTILITY</span>
               </div>
-              <h3 class="project-card-title">Netflix Landing Page Clone</h3>
-              <p class="project-summary">Recreated high-traffic streaming interface with accordion FAQs, complex CSS Grid/Flexbox layouts, and mobile viewport optimizations.</p>
+              <h3 class="project-card-title">Smart File Organizer</h3>
+              <p class="project-summary">Organizes files into extension-categorized directories dynamically with collision handling and timing performance statistics.</p>
               <div class="project-tech-pills">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                <span>Python</span><span>pathlib</span><span>shutil</span>
+              </div>
+              <div class="project-card-footer">
+                <button class="btn-case-study" data-open-modal="file-organizer">
+                  Read Case Study ➔
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Auto Project Scaffolder -->
+          <article class="project-card border-glow-red" data-project-id="project-generator">
+            <div class="project-image-wrapper">
+              <div class="mockup-browser-mini">
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+                <div class="mini-viewport">
+                  <div class="preview-hero-sim">
+                    <span class="sim-title text-red">WORKSPACE SCRIPTS</span>
+                    <span class="sim-tag">Event-Driven Generator</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-cat text-yellow">PYTHON UTILITY</span>
+              </div>
+              <h3 class="project-card-title">Auto Project Generator</h3>
+              <p class="project-summary">Automatically generates directory templates, initializes Git, and opens VS Code based on system watch folder renaming events.</p>
+              <div class="project-tech-pills">
+                <span>Python</span><span>Watchdog</span><span>Git</span><span>VS Code</span>
+              </div>
+              <div class="project-card-footer">
+                <button class="btn-case-study" data-open-modal="project-generator">
+                  Read Case Study ➔
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Netflix Landing Clone -->
+          <article class="project-card border-glow-yellow" data-project-id="netflix-clone">
+            <div class="project-image-wrapper">
+              <div class="mockup-browser-mini">
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+                <div class="mini-viewport">
+                  <div class="preview-hero-sim">
+                    <span class="sim-title text-yellow">NETFLIX CLONE</span>
+                    <span class="sim-tag">Responsive UI Clone</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-cat text-red">FRONTEND DESIGN</span>
+              </div>
+              <h3 class="project-card-title">Netflix Clone🎬</h3>
+              <p class="project-summary">A pixel-perfect responsive Netflix landing page clone built using standard layout elements and styling properties.</p>
+              <div class="project-tech-pills">
+                <span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>CSS Grid</span>
               </div>
               <div class="project-card-footer">
                 <button class="btn-case-study" data-open-modal="netflix-clone">
@@ -300,57 +434,57 @@
             </div>
           </article>
 
-          <!-- Project Card 2 -->
-          <article class="project-card" data-project-id="downloads-organizer">
+          <!-- Project 4: Personal Developer Website -->
+          <article class="project-card border-glow-red" data-project-id="personal-website">
             <div class="project-image-wrapper">
               <div class="mockup-browser-mini">
                 <div class="mini-dots"><span></span><span></span><span></span></div>
-                <div class="mini-viewport preview-organizer">
-                  <div class="preview-hero-sim organizer">
-                    <span class="sim-title">AUTOMATION TOOL</span>
-                    <span class="sim-tag">Python & File System API</span>
+                <div class="mini-viewport">
+                  <div class="preview-hero-sim">
+                    <span class="sim-title text-red">DEVELOPER SITE</span>
+                    <span class="sim-tag">Responsive Portfolio</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-cat">SYSTEM AUTOMATION</span>
+                <span class="project-cat text-yellow">WEB DEVELOPMENT</span>
               </div>
-              <h3 class="project-card-title">Downloads Folder Organizer</h3>
-              <p class="project-summary">Automated Python script scanning system directories, classifying file extensions, and structuring missing category directories dynamically.</p>
+              <h3 class="project-card-title">Personal Developer Website</h3>
+              <p class="project-summary">Building my online presence and documenting my computer science journey in a clean, minimal portfolio.</p>
               <div class="project-tech-pills">
-                <span>Python</span><span>pathlib</span><span>shutil</span>
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
               <div class="project-card-footer">
-                <button class="btn-case-study" data-open-modal="downloads-organizer">
+                <button class="btn-case-study" data-open-modal="personal-website">
                   Read Case Study ➔
                 </button>
               </div>
             </div>
           </article>
 
-          <!-- Project Card 3 -->
-          <article class="project-card" data-project-id="password-manager">
+          <!-- Project 5: Python Password Manager -->
+          <article class="project-card border-glow-yellow" data-project-id="password-manager">
             <div class="project-image-wrapper">
               <div class="mockup-browser-mini">
                 <div class="mini-dots"><span></span><span></span><span></span></div>
-                <div class="mini-viewport preview-security">
-                  <div class="preview-hero-sim security">
-                    <span class="sim-title">SECURITY SUITE</span>
-                    <span class="sim-tag">Fernet Symmetric Key Encryption</span>
+                <div class="mini-viewport">
+                  <div class="preview-hero-sim">
+                    <span class="sim-title text-yellow">PASSWORD MANAGER</span>
+                    <span class="sim-tag">Secure CLI Vault</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-cat">SECURITY & CRYPTO</span>
+                <span class="project-cat text-red">PYTHON SECURITY</span>
               </div>
               <h3 class="project-card-title">Python Password Manager</h3>
-              <p class="project-summary">Local credential vaults secured with Fernet cryptography encryption algorithms, protecting confidential authentication tokens.</p>
+              <p class="project-summary">A local credential vault using encryption keys, JSON-based storage models, and robust error validation.</p>
               <div class="project-tech-pills">
-                <span>Python</span><span>cryptography</span><span>Security</span>
+                <span>Python</span><span>File Handling</span><span>JSON</span><span>Cryptography</span>
               </div>
               <div class="project-card-footer">
                 <button class="btn-case-study" data-open-modal="password-manager">
@@ -364,156 +498,205 @@
       </div>
     </section>
 
-    <!-- 05 SIMPLIFIED STARTUP TIMELINE -->
-    <section id="journey" class="section-journey">
+    <!-- 05 DEVELOPER COMMAND CENTER / SYSTEM STATS (Values update automatically from main.js config) -->
+    <section id="system-stats" class="section-system-stats" data-cursor-text="CONSOLE">
       <div class="container">
         <div class="section-header-minimal">
-          <span class="sub-title">TIMELINE</span>
-          <h2 class="section-heading">Startup Milestones<span class="dot-accent">.</span></h2>
+          <span class="sub-title text-red">CONSOLE</span>
+          <h2 class="section-heading animate-text" data-text="System Stats">System Stats<span class="dot-accent">.</span></h2>
         </div>
 
-        <div class="startup-timeline">
-          <div class="timeline-step">
-            <span class="step-year">2025</span>
-            <div class="step-node"></div>
-            <div class="step-content">
-              <h4>JEE Discipline & Pivot</h4>
-              <p>Built intense daily study consistency during 1.5 years of JEE prep, then pivoted 100% to software engineering.</p>
+        <div class="system-stats-grid">
+          
+          <!-- Terminal Status Card (Green glow indicator & Active quest message) -->
+          <div class="console-box card-status border-glow-yellow">
+            <div class="console-header">
+              <span class="console-dot-r"></span>
+              <span class="console-title">status.log</span>
+            </div>
+            <div class="console-body">
+              <div class="status-indicator-large">
+                <span class="status-indicator-text">Status:</span>
+                <span class="status-pill-glow text-red">Building 🟢</span>
+              </div>
+              
+              <div class="quest-log">
+                <span class="quest-label">CURRENT QUEST:</span>
+                <p class="quest-text">"Learning DSA with Java"</p>
+              </div>
+
+              <div class="streak-log">
+                <span class="streak-label">DAYS PROGRAMMING:</span>
+                <div class="streak-display">
+                  <span class="streak-val text-red" id="streak-counter-console">Day 127</span>
+                  <span class="streak-sub">Days Coding Since 1 March 2026</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-step">
-            <span class="step-year">EARLY 2026</span>
-            <div class="step-node"></div>
-            <div class="step-content">
-              <h4>Started Programming from Scratch</h4>
-              <p>Mastered modern HTML5, CSS Grid, Flexbox, and JavaScript logic building.</p>
+          <!-- Progress Dashboard Card (Shows skill levels as terminal code bars) -->
+          <div class="console-box card-skills-progress border-glow-red" id = "python_notes">
+            <div class="console-header">
+              <span class="console-dot-b"></span>
+              <span class="console-title">skill_levels.sys</span>
+            </div>
+            <div class="console-body">
+              <div class="progress-bars-container">
+                <!-- Data populated dynamically from consoleConfig object in main.js -->
+                <div class="skill-progress-item" data-skill="Python" data-percent="45">
+                  <div class="skill-progress-meta">
+                    <span class="sp-name">Python Programming</span>
+                    <span class="sp-val text-yellow">45%</span>
+                  </div>
+                  <div class="skill-block-bar font-mono text-yellow">████░░░░░░ 45%</div>
+                  <span class="sp-desc" style="font-size:0.75rem; color:var(--text-muted);">Completed basics, learning deeper concepts and building projects.</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-step">
-            <span class="step-year">MID 2026</span>
-            <div class="step-node"></div>
-            <div class="step-content">
-              <h4>Shipped First Automation Projects</h4>
-              <p>Built Python file managers, Fernet encryption tools, and desktop CLI automation scripts.</p>
+          <!-- Now Learning Info Box   (Current studies bullet lists) -->
+          <div class="console-box card-now-learning border-glow-yellow">
+            <div class="console-header">
+              <span class="console-dot-g"></span>
+              <span class="console-title">now_learning.cfg</span>
+            </div>
+            <div class="console-body">
+              <span class="now-learning-label">NOW LEARNING:</span>
+              <ul class="now-learning-list font-mono">
+                <!-- Populated dynamically from main.js -->
+              </ul>
             </div>
           </div>
 
-          <div class="timeline-step current-step">
-            <span class="step-year">PRESENT</span>
-            <div class="step-node active"></div>
-            <div class="step-content">
-              <h4>Documenting Publicly & Learning React</h4>
-              <p>Building an engaged community on Instagram (@devwithbhavya) while mastering advanced React & DSA.</p>
-            </div>
+        </div>
+      </div>
+    </section>  
+
+    <!-- 06 KNOWLEDGE VAULT / NOTES SECTION (Dynamic Chrome Bookmarks + Notion Database) -->
+    <section id="knowledge-vault" class="section-knowledge-vault" data-cursor-text="NOTES">
+      <div class="container">
+        
+        <!-- Section Header with Add Button & Admin Lock Control -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+          <div class="section-header-minimal" style="margin-bottom: 0;">
+            <span class="sub-title text-red">VAULT</span>
+            <h2 class="section-heading animate-text" data-text="Knowledge Vault">Knowledge Vault<span class="dot-accent">.</span></h2>
+          </div>
+          <!-- Admin Control Button Wrapper -->
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <button id="admin-login-btn" class="btn-secondary" style="padding: 0.75rem 1.25rem; font-weight: 700; border-radius: 100px; cursor: pointer; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.85rem;" data-magnetic>
+              Admin Login 🔒
+            </button>
+            <button id="vault-add-btn" class="btn-primary" style="padding: 0.75rem 1.5rem; font-weight: 700; border: none; cursor: pointer; display: none;" data-magnetic>
+              + Add Resource
+            </button>
           </div>
         </div>
+
+        <!-- Notion-style Database Filters & Search Controls -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-subtle);">
+          <!-- Search Bar -->
+          <div class="search-input-wrap" style="max-width: 100%;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" id="vault-search-input" placeholder="Search your knowledge vault database..." autocomplete="off" style="font-family: var(--font-body);">
+          </div>
+          <!-- Filter Buttons (Pills) -->
+          <div class="filter-pills" style="margin-top: 0.5rem;">
+            <button class="filter-pill-btn active" data-vault-filter="all">All</button>
+            <button class="filter-pill-btn" data-vault-filter="Python">Python</button>
+            <button class="filter-pill-btn" data-vault-filter="Web Development">Web Development</button>
+            <button class="filter-pill-btn" data-vault-filter="AI/ML">AI/ML</button>
+            <button class="filter-pill-btn" data-vault-filter="Robotics">Robotics</button>
+            <button class="filter-pill-btn" data-vault-filter="Computer Science">Computer Science</button>
+            <button class="filter-pill-btn" data-vault-filter="Mathematics">Mathematics</button>
+            <button class="filter-pill-btn" data-vault-filter="Tools">Tools</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Grid where card elements are rendered -->
+        <div class="knowledge-vault-grid" id="vault-grid">
+          <!-- Dynamically populated from LocalStorage via main.js -->
+        </div>
+
       </div>
     </section>
 
-    <!-- 06 NEW SECTION: BUILD LOG -->
-    <section id="build-log" class="section-build-log">
+    <!-- NEW SECTION: MY QUOTES & LIVE COMMENT BOX -->
+    <section id="quotes-comments" class="section-quotes-comments" data-cursor-text="COMMENTS">
       <div class="container">
-        <div class="section-header-minimal">
-          <span class="sub-title">SHIPPED CODE</span>
-          <h2 class="section-heading">Build Log<span class="dot-accent">.</span></h2>
-        </div>
-
-        <div class="build-log-container">
-          <div class="log-month-group">
-            <div class="log-month-header">JUNE 2026</div>
-            <div class="log-items-list">
-              <div class="log-item">
-                <span class="log-status check">✓</span>
-                <span class="log-title">Downloads Folder Organizer</span>
-                <span class="log-tech">Python • OS API</span>
-              </div>
-              <div class="log-item">
-                <span class="log-status check">✓</span>
-                <span class="log-title">Python Password Manager Encryption</span>
-                <span class="log-tech">Cryptography • Fernet</span>
-              </div>
-              <div class="log-item">
-                <span class="log-status check">✓</span>
-                <span class="log-title">VS Code & Git Initialization Scripts</span>
-                <span class="log-tech">Subprocess • CLI</span>
-              </div>
-              <div class="log-item">
-                <span class="log-status check">✓</span>
-                <span class="log-title">Minimalist Case-Study Portfolio</span>
-                <span class="log-tech">HTML5 • CSS Grid • GSAP</span>
-              </div>
+        
+        <div class="quotes-comments-grid">
+          
+          <!-- Column 1: Quotes I Like -->
+          <div class="quotes-column">
+            <div class="section-header-minimal">
+              <span class="sub-title text-red">INSPIRATION</span>
+              <h3 class="section-heading">My Quotes</h3>
+            </div>
+            <!-- ==========================================
+                 [EDIT HERE]: YOUR MOTIVATIONAL QUOTES LIST
+                 ========================================== -->
+            <div class="quote-card-ref border-glow-yellow">
+              <p class="quote-text">"Still learning. Still shipping. The magic is in the consistency of putting blocks of code together every single day."</p>
+              <span class="quote-author">— Bhavya Kothari</span>
+            </div>
+            <div class="quote-card-ref border-glow-red">
+              <p class="quote-text">"Simplify and execute. Real products solve real problems. Tutorials are map keys, but coding is the actual hike."</p>
+              <span class="quote-author">— Dev Mindset</span>
             </div>
           </div>
 
-          <div class="log-month-group active-group">
-            <div class="log-month-header pulse-header">CURRENTLY Learning</div>
-            <div class="log-items-list">
-              <div class="log-item active-item">
-                <span class="log-status spinner">⚡</span>
-                <span class="log-title">Java</span>
-                <span class="log-tech">DSA</span>
-              </div>
+          <!-- Column 2: Interactive Guestbook Comment Wall -->
+          <div class="comments-column">
+            <div class="section-header-minimal">
+              <span class="sub-title text-yellow">GUESTBOOK</span>
+              <h3 class="section-heading">Comments</h3>
+            </div>
+            <div class="comment-input-box border-glow-red">
+              <form id="comment-form">
+                <input type="text" id="comment-name" placeholder="Your Name" required autocomplete="off">
+                <textarea id="comment-message" placeholder="Leave a feedback, comment or shout-out..." required></textarea>
+                <button type="submit" class="btn-primary" style="margin-top:1rem; width:100%; border:none; cursor:pointer;">
+                  Post Comment 🚀
+                </button>
+              </form>
+            </div>
+            <!-- List updates automatically based on visitor inputs -->
+            <div class="comments-list-container" id="comments-list">
+              <!-- Dynamically populated from LocalStorage via main.js -->
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 07 NEW SECTION: CURRENTLY -->
-    <section id="currently" class="section-currently">
-      <div class="container">
-        <div class="section-header-minimal">
-          <span class="sub-title">LIVE SPRINT</span>
-          <h2 class="section-heading">Currently<span class="dot-accent">.</span></h2>
         </div>
 
-        <div class="currently-grid">
-          <div class="currently-card">
-            <span class="curr-lbl">BUILDING</span>
-            <h4>Python Password Manager</h4>
-            <p>Developing component-driven web architectures and refining Python system scripts.</p>
-          </div>
-
-          <div class="currently-card">
-            <span class="curr-lbl">LEARNING</span>
-            <h4>Data Structures & Algorithms</h4>
-            <p>Sharpening algorithmic thinking, space-time complexity analysis, and recursion.</p>
-          </div>
-
-          <div class="currently-card">
-            <span class="curr-lbl">READING</span>
-            <h4>Psychology of Money</h4>
-            <p>To develop Some Financial skills</p>
-          </div>
-
-          <div class="currently-card highlight-card">
-            <span class="curr-lbl gold">NEXT GOAL</span>
-            <h4>AI & Machine Learning Foundations</h4>
-            <p>Preparing mathematical and data foundations for deep learning and neural network architectures.</p>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- 08 CONTACT SECTION -->
-    <section id="contact" class="section-contact">
+    <section id="contact" class="section-contact" data-cursor-text="CONTACT">
       <div class="container">
-        <div class="contact-minimal-box">
+        <div class="contact-minimal-box border-glow-yellow">
           <h2 class="contact-title">Let's build together<span class="dot-accent">.</span></h2>
           <p class="contact-desc">I document my full software engineering journey publicly. Connect via email or social channels below.</p>
 
           <div class="contact-actions-row">
+            <!-- ==========================================
+                 [EDIT HERE]: EMAIL ADDRESS SHOWN IN THE BOX
+                 ========================================== -->
             <div class="email-copy-bar" id="email-box" data-magnetic>
               <span class="email-address">bhavyakothari.dev@gmail.com</span>
-              <button class="btn-copy-action" id="copy-btn">Copy</button>
+              <button class="btn-copy-action bg-yellow" id="copy-btn">Copy</button>
             </div>
 
+            <!-- ==========================================
+                 [EDIT HERE]: SOCIAL CARD LINKS
+                 ========================================== -->
             <div class="contact-social-links">
-              <a href="https://instagram.com/devwithbhavya" target="_blank" class="social-link-btn insta">Instagram ↗</a>
+              <a href="https://instagram.com/devwithbhavya" target="_blank" class="social-link-btn insta text-red">Instagram ↗</a>
               <a href="https://youtube.com/@bhavyak7?si=plMj4Z3cfRqX1n8n" target="_blank" class="social-link-btn yt">YouTube ↗</a>
-              <a href="https://github.com/BhavyaPro-7" target="_blank" class="social-link-btn">GitHub ↗</a>
+              <a href="https://github.com" target="_blank" class="social-link-btn">GitHub ↗</a>
             </div>
           </div>
         </div>
@@ -530,12 +713,94 @@
           <span class="footer-quote">Still learning. Still shipping. See you in the next project.</span>
           <span class="footer-copy">© 2026 Bhavya Kothari. Designed with intention.</span>
         </div>
+        <a href="./resources.html" class="nav-link text-red" style="font-weight:700;">Resources Directory ➔</a>
         <button class="back-to-top-clean" id="back-to-top" data-magnetic>
           <span>Top ↑</span>
         </button>
       </div>
     </div>
   </footer>
+
+  <!-- Resource Modal (Add / Edit Form) -->
+  <div class="case-study-modal-overlay" id="resource-modal" style="z-index: 10002;">
+    <div class="case-study-modal-container border-glow-yellow" style="max-width: 500px; padding: 2.5rem;">
+      <button class="modal-close-btn" id="resource-modal-close" aria-label="Close Modal">&times;</button>
+      
+      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;" id="resource-modal-title">Add New Resource</h3>
+      
+      <form id="resource-form" style="display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Hidden input storing index when editing -->
+        <input type="hidden" id="resource-id" value="">
+
+        <!-- Name Input -->
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Resource Name</label>
+          <input type="text" id="resource-name" placeholder="e.g. Python Documentation" required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+
+        <!-- URL Input -->
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Resource URL</label>
+          <input type="url" id="resource-url" placeholder="https://..." required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+
+        <!-- Category & Type Drops -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Category</label>
+            <select id="resource-category" style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+              <option value="Web Development">Web Development</option>
+              <option value="Python">Python</option>
+              <option value="AI/ML">AI/ML</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Robotics">Robotics</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Tools">Tools</option>
+            </select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Resource Type</label>
+            <select id="resource-type" style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+              <option value="YouTube Course">YouTube Course</option>
+              <option value="Documentation">Documentation</option>
+              <option value="Article">Article</option>
+              <option value="GitHub">GitHub</option>
+              <option value="Book">Book</option>
+              <option value="Tool">Tool</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 1rem; border: none; cursor: pointer;">
+          Save Resource 💾
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal Overlay -->
+  <div class="case-study-modal-overlay" id="admin-login-modal" style="z-index: 10003;">
+    <div class="case-study-modal-container border-glow-yellow" style="max-width: 400px; padding: 2.5rem;">
+      <button class="modal-close-btn" id="admin-login-modal-close" aria-label="Close Modal">&times;</button>
+      
+      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">Admin Authentication</h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Only <strong>bhavyakothari.dev@gmail.com</strong> can add or edit resources.</p>
+      
+      <form id="admin-login-form" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Gmail Address</label>
+          <input type="email" id="admin-email" required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Gmail Admin PIN</label>
+          <input type="password" id="admin-password" required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+        <button type="submit" class="btn-primary" style="margin-top: 1rem; border: none; cursor: pointer;">
+          Log In 🔓
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- GSAP & Lenis Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

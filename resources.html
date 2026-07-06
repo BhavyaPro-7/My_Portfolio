@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Hub — Bhavya Kothari</title>
+  <meta name="description" content="Organized, interactive directory of reference links, YouTube channels, development tools, and design inspiration curated by Bhavya Kothari.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Lenis CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body class="resources-page">
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline">
+    <span class="cursor-label" id="cursor-label"></span>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Copied to clipboard! 🚀</div>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="./index.html" class="brand-badge" data-magnetic>
+        <span class="brand-initials">BK</span>
+        <span class="brand-year text-red">PORTFOLIO</span>
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav class="main-nav">
+        <a href="./index.html#about" class="nav-link">About</a>
+        <a href="./index.html#projects" class="nav-link">Projects</a>
+        <a href="./index.html#system-stats" class="nav-link">Stats</a>
+        <a href="./index.html#knowledge-vault" class="nav-link">Vault</a>
+        <a href="./index.html#quotes-comments" class="nav-link">Comments</a>
+        <a href="./blog.html" class="nav-link text-red">Blog</a>
+        <a href="#" class="nav-link active nav-btn-pill highlight-resources">Resources</a>
+      </nav>
+
+      <div class="header-right-group">
+        <!-- Shared Admin status indicator button -->
+        <button id="admin-login-btn" class="btn-secondary" style="padding: 0.4rem 1rem; border-radius: 100px; cursor: pointer; border: 1px solid var(--border-subtle); font-family: var(--font-body); font-size: 0.8rem; font-weight: 700;">
+          Admin Login 🔒
+        </button>
+        <a href="https://instagram.com/devwithbhavya" target="_blank" rel="noopener" class="status-indicator header-insta-btn" style="color: black;">
+          <span class="status-dot red-dot-anim"></span>
+          <span class="status-text">@devwithbhavya</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 9rem; padding-bottom: 6rem; position: relative;">
+    
+    <!-- Background glowing shapes for futuristic developer database feel -->
+    <div class="hero-bg-shapes">
+      <div class="hero-shape hero-shape-1" style="background: rgba(245, 178, 26, 0.08);"></div>
+      <div class="hero-shape hero-shape-2" style="background: rgba(255, 59, 48, 0.05);"></div>
+    </div>
+
+    <!-- Section Title & Description -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;">
+      <div class="section-header-minimal" style="margin-bottom: 0;">
+        <span class="sub-title font-mono text-red">PUBLIC HUB / CURATED Reference</span>
+        <h2 class="section-heading">Resources Library<span class="dot-accent">.</span></h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin-top: 1rem; font-size: 1.05rem;">
+          A public repository of useful courses, tools, reference materials, GitHub repositories, and learning assets curated by Bhavya.
+        </p>
+      </div>
+      <!-- Add Resource button - hidden for normal visitors, unlocked on admin login -->
+      <button id="library-add-btn" class="btn-primary" style="padding: 0.75rem 1.5rem; font-weight: 700; border: none; cursor: pointer; display: none;" data-magnetic>
+        + Add Resource
+      </button>
+    </div>
+
+    <!-- Notion-style Database Search, Filters, & Sorting -->
+    <div class="resources-toolbar" style="background: var(--card-bg); padding: 1.75rem; border-radius: 20px; border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 1.25rem;">
+      
+      <div style="display: flex; gap: 1.5rem; width: 100%; align-items: center; flex-wrap: wrap;">
+        <!-- Search bar -->
+        <div class="search-input-wrap" style="flex-grow: 1; max-width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" id="resources-search" placeholder="Search resources library database..." autocomplete="off">
+        </div>
+        
+        <!-- Sorting dropdown options -->
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); font-family: var(--font-mono);">SORT BY:</span>
+          <select id="resources-sort" style="padding: 0.55rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.85rem; outline: none; background-color: var(--bg-color); color: var(--text-primary); cursor: pointer;">
+            <option value="newest">Newest Added</option>
+            <option value="category">Category (A-Z)</option>
+            <option value="difficulty">Difficulty (Beg-Adv)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filters Pills -->
+      <div class="filter-pills" style="margin-top: 0.25rem;">
+        <button class="filter-pill-btn active" data-library-filter="all">All Items</button>
+        <button class="filter-pill-btn" data-library-filter="Web Development">Web Dev</button>
+        <button class="filter-pill-btn" data-library-filter="Python">Python</button>
+        <button class="filter-pill-btn" data-library-filter="AI/ML">AI/ML</button>
+        <button class="filter-pill-btn" data-library-filter="DSA">DSA</button>
+        <button class="filter-pill-btn" data-library-filter="Developer Tools">Tools</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Cards Container Grid -->
+    <div class="resources-grid" id="resources-container">
+      <!-- Dynamically populated from LocalStorage library array via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- Add/Edit Resource Modal Form -->
+  <div class="case-study-modal-overlay" id="library-modal" style="z-index: 10002;">
+    <div class="case-study-modal-container border-glow-yellow" style="max-width: 520px; padding: 2.5rem;">
+      <button class="modal-close-btn" id="library-modal-close" aria-label="Close Modal">&times;</button>
+      
+      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.5rem;" id="library-modal-title">Add Curated Resource</h3>
+      
+      <form id="library-form" style="display: flex; flex-direction: column; gap: 1rem;">
+        <input type="hidden" id="library-resource-id" value="">
+
+        <!-- Title -->
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Resource Title</label>
+          <input type="text" id="lib-title" placeholder="e.g. PyTorch Learning Course" required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+
+        <!-- Link -->
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Resource Link (URL)</label>
+          <input type="url" id="lib-link" placeholder="https://..." required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+
+        <!-- Description -->
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Description</label>
+          <textarea id="lib-desc" placeholder="Explain why this resource is useful to study..." required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary); height: 80px; resize: none;"></textarea>
+        </div>
+
+        <!-- Select Drops -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Category</label>
+            <select id="lib-category" style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.85rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+              <option value="Web Development">Web Development</option>
+              <option value="Python">Python</option>
+              <option value="AI/ML">AI/ML</option>
+              <option value="DSA">DSA</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Robotics">Robotics</option>
+              <option value="Productivity">Productivity</option>
+              <option value="Developer Tools">Developer Tools</option>
+            </select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Resource Type</label>
+            <select id="lib-type" style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.85rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+              <option value="YouTube Course">YouTube Course</option>
+              <option value="Documentation">Documentation</option>
+              <option value="GitHub Repository">GitHub Repository</option>
+              <option value="Website">Website</option>
+              <option value="Tool">Tool</option>
+              <option value="Book">Book</option>
+              <option value="Article">Article</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Difficulty Level</label>
+          <select id="lib-difficulty" style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.85rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 1rem; border: none; cursor: pointer;">Save Resource 💾</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal (Directly integrated matching home page checks) -->
+  <div class="case-study-modal-overlay" id="admin-login-modal" style="z-index: 10003;">
+    <div class="case-study-modal-container border-glow-yellow" style="max-width: 400px; padding: 2.5rem;">
+      <button class="modal-close-btn" id="admin-login-modal-close" aria-label="Close Modal">&times;</button>
+      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">Admin Authentication</h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Only <strong>bhavyakothari.dev@gmail.com</strong> can add or edit resources.</p>
+      
+      <form id="admin-login-form" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Gmail Address</label>
+          <input type="email" id="admin-email" required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Gmail Admin PIN</label>
+          <input type="password" id="admin-password" required style="padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid var(--border-medium); font-family: var(--font-body); font-size: 0.9rem; outline: none; background-color: var(--bg-color); color: var(--text-primary);">
+        </div>
+        <button type="submit" class="btn-primary" style="margin-top: 1rem; border: none; cursor: pointer;">Log In 🔓</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner-wrap">
+        <div class="footer-left">
+          <span class="footer-quote">Curated with intention. Still shipping.</span>
+          <span class="footer-copy">© 2026 Bhavya Kothari. All links verified.</span>
+        </div>
+        <a href="./index.html" class="back-to-top-clean" style="text-decoration:none;">Back to Portfolio ➔</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & Lenis Smooth Scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Interactive JavaScript Library Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize Lenis smooth scroll
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        smoothTouch: true,
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+
+      // 2. Default Seed Database values
+      const defaultLibrary = [
+        {
+          title: "MDN Web Docs",
+          link: "https://developer.mozilla.org",
+          desc: "The definitive reference dictionary for standard HTML5 elements, Vanilla CSS layouts, and modern ECMAScript specifications.",
+          category: "Web Development",
+          type: "Documentation",
+          difficulty: "Beginner",
+          timestamp: 1782500000000
+        },
+        {
+          title: "Fireship Code Explanations",
+          link: "https://youtube.com/@Fireship",
+          desc: "High-intensity code tutorials, tech news updates, and comprehensive framework summaries in 100 seconds.",
+          category: "Productivity",
+          type: "YouTube Course",
+          difficulty: "Beginner",
+          timestamp: 1782500001000
+        },
+        {
+          title: "Python 3 Official Docs",
+          link: "https://docs.python.org/3/",
+          desc: "Official guide to standard Python modules, syntax details, library dependencies, file system modules, and packaging guides.",
+          category: "Python",
+          type: "Documentation",
+          difficulty: "Intermediate",
+          timestamp: 1782500002000
+        },
+        {
+          title: "PyTorch Framework docs",
+          link: "https://pytorch.org",
+          desc: "An open-source machine learning framework providing GPU acceleration, tensor computation, and linear algebra utilities.",
+          category: "AI/ML",
+          type: "Documentation",
+          difficulty: "Advanced",
+          timestamp: 1782500003000
+        },
+        {
+          title: "Linear App Productivity",
+          link: "https://linear.app",
+          desc: "Product management interface showcasing peak UI efficiency, keyboard-first navigations, clean typography, and responsive grid layouts.",
+          category: "Productivity",
+          type: "Website",
+          difficulty: "Intermediate",
+          timestamp: 1782500004000
+        }
+      ];
+
+      // LocalStorage getters and setters
+      function getLibraryResources() {
+        const data = localStorage.getItem('bhavya_library_resources');
+        if (!data) {
+          localStorage.setItem('bhavya_library_resources', JSON.stringify(defaultLibrary));
+          return defaultLibrary;
+        }
+        return JSON.parse(data);
+      }
+
+      function saveLibraryResources(resources) {
+        localStorage.setItem('bhavya_library_resources', JSON.stringify(resources));
+      }
+
+      function isUserAdmin() {
+        return localStorage.getItem('bhavya_is_admin') === 'true';
+      }
+
+      // Check admin status on load & update buttons
+      const adminLoginBtn = document.getElementById('admin-login-btn');
+      const libraryAddBtn = document.getElementById('library-add-btn');
+
+      function checkAdminStatus() {
+        const admin = isUserAdmin();
+        if (admin) {
+          if (adminLoginBtn) adminLoginBtn.innerHTML = "Logout 🔓";
+          if (libraryAddBtn) libraryAddBtn.style.display = "block";
+        } else {
+          if (adminLoginBtn) adminLoginBtn.innerHTML = "Admin Login 🔒";
+          if (libraryAddBtn) libraryAddBtn.style.display = "none";
+        }
+      }
+
+      // Simple SVG type-icons mapping
+      function getResourceIcon(url, type) {
+        const normalizedUrl = url.toLowerCase();
+        const normalizedType = type.toLowerCase();
+
+        if (normalizedType.includes('youtube') || normalizedUrl.includes('youtube.com') || normalizedUrl.includes('youtu.be')) {
+          return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="2" style="background: rgba(255, 59, 48, 0.08); padding: 5px; border-radius: 8px;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>`;
+        }
+        if (normalizedType.includes('github') || normalizedUrl.includes('github.com')) {
+          return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" style="background: rgba(17, 17, 17, 0.06); padding: 5px; border-radius: 8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>`;
+        }
+        if (normalizedType.includes('book')) {
+          return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="2" style="background: rgba(255, 59, 48, 0.08); padding: 5px; border-radius: 8px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20F4 19.5V3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v14M6.5 17H20"/></svg>`;
+        }
+        if (normalizedType.includes('tool')) {
+          return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-yellow)" stroke-width="2" style="background: rgba(245, 178, 26, 0.08); padding: 5px; border-radius: 8px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`;
+        }
+        return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-yellow)" stroke-width="2" style="background: rgba(245, 178, 26, 0.08); padding: 5px; border-radius: 8px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+      }
+
+      // Dynamic search, sorting and filter variables
+      let currentFilter = 'all';
+      let currentSearch = '';
+      let currentSort = 'newest';
+
+      const resourcesContainer = document.getElementById('resources-container');
+
+      // Sorting handler
+      function sortResources(list) {
+        if (currentSort === 'newest') {
+          return list.sort((a, b) => b.timestamp - a.timestamp);
+        } else if (currentSort === 'category') {
+          return list.sort((a, b) => a.category.localeCompare(b.category));
+        } else if (currentSort === 'difficulty') {
+          const diffLevels = { 'Beginner': 1, 'Intermediate': 2, 'Advanced': 3 };
+          return list.sort((a, b) => diffLevels[a.difficulty] - diffLevels[b.difficulty]);
+        }
+        return list;
+      }
+
+      // Render cards dynamically
+      function renderLibrary() {
+        const resources = getLibraryResources();
+        if (!resourcesContainer) return;
+
+        const filtered = resources.filter(res => {
+          const matchesSearch = res.title.toLowerCase().includes(currentSearch) || res.desc.toLowerCase().includes(currentSearch);
+          const matchesFilter = currentFilter === 'all' || res.category === currentFilter;
+          return matchesSearch && matchesFilter;
+        });
+
+        const sorted = sortResources(filtered);
+        const admin = isUserAdmin();
+
+        resourcesContainer.innerHTML = sorted.map((res, index) => {
+          const originalIndex = resources.findIndex(r => r.link === res.link && r.title === res.title);
+          
+          const adminButtonsHtml = admin ? `
+            <button class="lib-edit-btn btn-secondary" data-index="${originalIndex}" style="padding: 0.4rem 0.85rem; font-size: 0.75rem; border-radius: 6px; cursor: pointer; border: 1px solid var(--border-subtle);">Edit</button>
+            <button class="lib-delete-btn btn-secondary text-red" data-index="${originalIndex}" style="padding: 0.4rem 0.85rem; font-size: 0.75rem; border-radius: 6px; cursor: pointer; border: 1px solid rgba(255, 59, 48, 0.2); background: rgba(255, 59, 48, 0.03);">Delete</button>
+          ` : '';
+
+          return `
+            <div class="resource-card border-glow-yellow" data-category="${res.category}" style="display:flex; flex-direction:column; justify-content:space-between; min-height:240px; background:var(--card-bg); padding:1.75rem; border-radius:16px; border:1px solid var(--border-subtle);">
+              <div>
+                <div class="res-card-top" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; width:80%;">
+                    ${getResourceIcon(res.link, res.type)}
+                    <h4 style="font-size:1.15rem; font-weight:700; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${res.title}">${res.title}</h4>
+                  </div>
+                  <span class="res-tag font-mono" style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">${res.type}</span>
+                </div>
+                <div class="res-card-body" style="margin-bottom:1rem;">
+                  <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin-bottom:1rem;">${res.desc}</p>
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; font-weight:600;">
+                    <div>Category: <span class="text-red">${res.category}</span></div>
+                    <div style="background:rgba(245, 178, 26, 0.08); padding:0.2rem 0.5rem; border-radius:100px; color:var(--accent-yellow); font-size:0.7rem;">${res.difficulty}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="res-card-footer" style="display:flex; gap:0.5rem; border-top:1px dashed var(--border-subtle); padding-top:0.85rem; margin-top:1rem;">
+                <a href="${res.link}" target="_blank" class="btn-primary" style="padding:0.4rem 0.85rem; font-size:0.75rem; text-decoration:none; display:inline-flex; align-items:center;">Open Resource</a>
+                ${adminButtonsHtml}
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Bind admin actions
+        if (admin) {
+          document.querySelectorAll('.lib-edit-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const index = btn.getAttribute('data-index');
+              openLibraryModal(parseInt(index));
+            });
+          });
+          document.querySelectorAll('.lib-delete-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const index = btn.getAttribute('data-index');
+              deleteLibraryResource(parseInt(index));
+            });
+          });
+        }
+      }
+
+      // Modal Controls
+      const libraryModal = document.getElementById('library-modal');
+      const libraryForm = document.getElementById('library-form');
+      const libraryModalClose = document.getElementById('library-modal-close');
+
+      function openLibraryModal(index = null) {
+        if (!libraryModal) return;
+        const titleEl = document.getElementById('library-modal-title');
+        const idInput = document.getElementById('library-resource-id');
+
+        if (index !== null) {
+          const resources = getLibraryResources();
+          const res = resources[index];
+          
+          titleEl.textContent = "Edit Curated Resource";
+          document.getElementById('lib-title').value = res.title;
+          document.getElementById('lib-link').value = res.link;
+          document.getElementById('lib-desc').value = res.desc;
+          document.getElementById('lib-category').value = res.category;
+          document.getElementById('lib-type').value = res.type;
+          document.getElementById('lib-difficulty').value = res.difficulty;
+          idInput.value = index;
+        } else {
+          titleEl.textContent = "Add Curated Resource";
+          libraryForm.reset();
+          idInput.value = "";
+        }
+        libraryModal.classList.add('active');
+      }
+
+      function closeLibraryModal() {
+        if (libraryModal) libraryModal.classList.remove('active');
+      }
+
+      if (libraryAddBtn) libraryAddBtn.addEventListener('click', () => openLibraryModal());
+      if (libraryModalClose) libraryModalClose.addEventListener('click', closeLibraryModal);
+
+      // Form submit updates localStorage
+      if (libraryForm) {
+        libraryForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const title = document.getElementById('lib-title').value.trim();
+          const link = document.getElementById('lib-link').value.trim();
+          const desc = document.getElementById('lib-desc').value.trim();
+          const category = document.getElementById('lib-category').value;
+          const type = document.getElementById('lib-type').value;
+          const difficulty = document.getElementById('lib-difficulty').value;
+          const indexVal = document.getElementById('library-resource-id').value;
+
+          const resources = getLibraryResources();
+          const newRes = { title, link, desc, category, type, difficulty, timestamp: new Date().getTime() };
+
+          if (indexVal !== "") {
+            resources[parseInt(indexVal)] = newRes;
+          } else {
+            resources.push(newRes);
+          }
+
+          saveLibraryResources(resources);
+          closeLibraryModal();
+          renderLibrary();
+        });
+      }
+
+      function deleteLibraryResource(index) {
+        if (confirm("Are you sure you want to delete this library resource?")) {
+          const resources = getLibraryResources();
+          resources.splice(index, 1);
+          saveLibraryResources(resources);
+          renderLibrary();
+        }
+      }
+
+      // Filter and Search Events
+      const searchInput = document.getElementById('resources-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearch = e.target.value.toLowerCase();
+          renderLibrary();
+        });
+      }
+
+      const sortSelect = document.getElementById('resources-sort');
+      if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+          currentSort = e.target.value;
+          renderLibrary();
+        });
+      }
+
+      const filterBtns = document.querySelectorAll('[data-library-filter]');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-library-filter');
+          renderLibrary();
+        });
+      });
+
+      // Admin Login Modal popup trigger
+      const adminLoginModal = document.getElementById('admin-login-modal');
+      const adminLoginForm = document.getElementById('admin-login-form');
+      const adminLoginModalClose = document.getElementById('admin-login-modal-close');
+
+      function openAdminModal() {
+        if (adminLoginModal) adminLoginModal.classList.add('active');
+      }
+
+      function closeAdminModal() {
+        if (adminLoginModal) adminLoginModal.classList.remove('active');
+      }
+
+      if (adminLoginModalClose) adminLoginModalClose.addEventListener('click', closeAdminModal);
+
+      if (adminLoginBtn) {
+        adminLoginBtn.addEventListener('click', () => {
+          if (isUserAdmin()) {
+            localStorage.removeItem('bhavya_is_admin');
+            checkAdminStatus();
+            renderLibrary();
+            const toast = document.getElementById('toast');
+            if (toast) {
+              toast.textContent = "Logged out of Admin Session 🔒";
+              toast.classList.add('show');
+              setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+          } else {
+            openAdminModal();
+          }
+        });
+      }
+
+      if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailVal = document.getElementById('admin-email').value.trim();
+          const passwordVal = document.getElementById('admin-password').value.trim();
+
+          if (emailVal === 'bhavyakothari.dev@gmail.com' && passwordVal === '4148') {
+            localStorage.setItem('bhavya_is_admin', 'true');
+            closeAdminModal();
+            checkAdminStatus();
+            renderLibrary();
+            const toast = document.getElementById('toast');
+            if (toast) {
+              toast.textContent = "Admin Session Authenticated! 🔓";
+              toast.classList.add('show');
+              setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+          } else {
+            alert("Invalid admin email or PIN. Authorization denied.");
+          }
+        });
+      }
+
+      // Cursor hover states
+      document.querySelectorAll('.resource-card, button, a, select, input, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          document.body.classList.add('cursor-hover');
+          const cursorLabel = document.getElementById('cursor-label');
+          if (cursorLabel) {
+            cursorLabel.textContent = "VIEW";
+            cursorLabel.style.opacity = "1";
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          document.body.classList.remove('cursor-hover');
+          const cursorLabel = document.getElementById('cursor-label');
+          if (cursorLabel) {
+            cursorLabel.textContent = "";
+            cursorLabel.style.opacity = "0";
+          }
+        });
+      });
+
+      // Render library
+      checkAdminStatus();
+      renderLibrary();
+    });
+  </script>
+</body>
+</html>
